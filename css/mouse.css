@@ -1,7 +1,15 @@
 body {
-    cursor:url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur), default;
+    cursor:url(/img/curb.png), auto;
 }
-a, img {
-    cursor:url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur), default;
+a, button {
+    cursor:url(/img/cur.png), auto;
 }
-    
+i.fas.fa-angle-down.scroll-down-effects {
+    cursor:url(/img/cur1.png), auto;
+}
+img {
+    cursor:url(/img/cur1.png), auto;
+}
+a.site-page.child[href="/gallery/"] {
+    cursor:url(/img/cur2.png), auto !important;
+}
