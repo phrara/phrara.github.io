@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>P2P-Botnet | 1!5!</title><meta name="keywords" content="botnet,p2p"><meta name="author" content="phrara"><meta name="copyright" content="phrara"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f8f5d6"><meta name="description" content="概述 CNCERT监测发现从2020年以来P2P僵尸网络异常活跃，如Mozi、Pinkbot、Pbot、Panchan等新型P2P僵尸网络家族在这几年来，年均异常活跃，感染规模大、追溯源头难且难以治理，给网络空间带来较大威胁。  P2P Botnet起源传统的 Botnet，一般指可以通过少数特定C&amp;C服务器来集中式控制的僵尸网络，用来给僵尸主机上的 Botnet 客户端恶意程序下发指令的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P2P-Botnet">
+<meta property="og:url" content="http://example.com/post/11111d2d/index.html">
+<meta property="og:site_name" content="1!5!">
+<meta property="og:description" content="概述 CNCERT监测发现从2020年以来P2P僵尸网络异常活跃，如Mozi、Pinkbot、Pbot、Panchan等新型P2P僵尸网络家族在这几年来，年均异常活跃，感染规模大、追溯源头难且难以治理，给网络空间带来较大威胁。  P2P Botnet起源传统的 Botnet，一般指可以通过少数特定C&amp;C服务器来集中式控制的僵尸网络，用来给僵尸主机上的 Botnet 客户端恶意程序下发指令的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/c8.jpg">
+<meta property="article:published_time" content="2023-05-21T13:30:33.348Z">
+<meta property="article:modified_time" content="2023-05-21T17:03:11.828Z">
+<meta property="article:author" content="phrara">
+<meta property="article:tag" content="botnet">
+<meta property="article:tag" content="p2p">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/c8.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/post/11111d2d/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'P2P-Botnet',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-05-22 01:03:11'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f8f5d6')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/mouse.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/photo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">13</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Gifts</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/c8.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">1!5!</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> Gifts</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">P2P-Botnet</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-05-21T13:30:33.348Z" title="Created 2023-05-21 21:30:33">2023-05-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-05-21T17:03:11.828Z" title="Updated 2023-05-22 01:03:11">2023-05-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/security/">security</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="P2P-Botnet"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>CNCERT监测发现从2020年以来P2P僵尸网络异常活跃，如Mozi、Pinkbot、Pbot、Panchan等新型P2P僵尸网络家族在这几年来，年均异常活跃，感染规模大、追溯源头难且难以治理，给网络空间带来较大威胁。</p>
+</blockquote>
+<h2 id="P2P-Botnet起源"><a href="#P2P-Botnet起源" class="headerlink" title="P2P Botnet起源"></a>P2P Botnet起源</h2><p>传统的 Botnet，一般指<strong>可以通过少数特定C&amp;C服务器来集中式控制的僵尸网络</strong>，用来给僵尸主机上的 Botnet 客户端恶意程序下发指令的服务器，叫做 <strong>C&amp;C 服务器</strong>(Command and Control Server)。其网络模型基于 Client-Server 模型，属于<strong>中心化控制</strong>(Centralized Control)方式。这种网络结构只有一个或者少数几个 C&amp;C 服务器，一旦 C&amp;C 服务器被封堵、屏蔽，整个 Botnet 就轰然倒塌，脆弱性是显而易见的。所以，这种网络结构的 Botnet 发展历程中，从样本层面到网络设施层面都衍生了错综复杂的对抗措施，二进制样本层面的对抗之外，从 DGA 到 Fast-Flux，到借助于公共网络服务的 C&amp;C 通道，再到近两年基于区块链的域名解析，最终目的都是提高这种 Botnet 背后 C&amp;C 服务的健壮性，以降低被轻易摧毁的可能性。</p>
+<p>为了避免传统 Botnet 中的 <strong>单点故障</strong> 现象，也不想使用太复杂的技术来提高个别 C&amp;C 服务的健壮性，去中心化的 P2P Botnet 应运而生。基于 P2P 协议实现的 Botnet，不再需要中心化的 C&amp;C 服务器，只靠 Bot 节点之间各自通信，传播指令或者恶意文件。而 Botnet 的控制者(BotMaster)就隐藏在大批量的 Bot 节点中，悄悄控制着整个 Botnet。这样以来至少有两个显而易见的好处：一方面消除了传统 Botnet 中的中心化控制带来的单点故障因素，另一方面还让 BotMaster 更加隐蔽。<br>2007年出现的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Storm_botnet">Storm</a>可以算是这方面的鼻祖，那时botnet这种网络威胁刚为大众所知。Storm之后，陆续又有Karen、<a target="_blank" rel="noopener" href="https://ijcttjournal.org/archives/ijctt-v12p112">ZeroAccess</a>、GameOver、Hijime、mozi等20来种P2P botnet先后出现，它们在技术上各有特点，共同点就是规模大、防御难度大，想让它们彻底消失比较困难。</p>
+<h2 id="P2P-Botnet组织结构"><a href="#P2P-Botnet组织结构" class="headerlink" title="P2P Botnet组织结构"></a>P2P Botnet组织结构</h2><h3 id="Pbot"><a href="#Pbot" class="headerlink" title="Pbot"></a>Pbot</h3><p><img src="https://xxb.gdufe.edu.cn/_upload/article/images/e9/81/1787785a4099bb26696ef3ff8902/c62f9ae3-baf2-4ab2-9735-d5f45833c6d4.jpg"></p>
+<h3 id="Mozi"><a href="#Mozi" class="headerlink" title="Mozi"></a>Mozi</h3><p><img src="https://blog.netlab.360.com/content/images/2019/12/mozi_flow-3.png"></p>
+<p>从上面两张图可以看出，P2P botnet 的组织结构总体上是相似的，以P2P网络为基础进行组建僵尸网络使其比传统的C/S结构具有更好的可扩展性和健壮性。</p>
+<h1 id="新型-P2P-Botnet"><a href="#新型-P2P-Botnet" class="headerlink" title="新型 P2P Botnet"></a>新型 P2P Botnet</h1><h2 id="Mozi-1"><a href="#Mozi-1" class="headerlink" title="Mozi"></a>Mozi</h2><p>2019年360发布报告命名了新的P2P僵尸网络Mozi，绿盟、知道创宇等公司也随后发布观测结果，IBM更是指出2019年10月至 2020年6月Mozi 僵尸网络占了 IoT 网络流量的 90％，但都还处于初期观测阶段，捕获到的Mozi样本数量远远不够。</p>
+<p>Mozi采用了P2P进行通信与控制，节点进行身份校验，通信流程和通信内容加密，这些措施提高了僵尸网络的隐匿度和顽固程度，极大增加了僵尸网络追踪和清理的难度</p>
+<p>Ｍozi Botnet使用自己扩展的DHT协议构建p2p网络，这样做有俩个好处，一来使用标准的DHT能够快速组网，二来使用自己的扩展能够将有效payload的流量隐匿于海量的正常DHT流量中，躲避检测。Mozi使用8组公共节点以及Config文件的[nd]字段指定的节点作为bootstrap nodes。引导新节点加入其DHT网络。</p>
+<blockquote>
+<p>Kademlia协议是一种分布式哈希表（DHT）技术，通过独特的以异或算法（XOR）为距离度量基础，建立了一种全新的DHT拓扑结构，大大提高了路由查询速度。Kad 现已成为DHT的主流实现方式，Mozi寄生的P2P网络也是基于Kad实现的</p>
+</blockquote>
+<p>Mozi节点在通过正常的P2P通信加入网络后，为了快速区分通信的P2P节点是否同样为Mozi节点，使用<code>1:v4:flag(4 bytes)</code>这样的标识来识别流量是否由其同类节点发出，达到同伙握手识别的目的，如下图所示。<br><img src="/post/11111d2d/Pasted%20image%2020230521224841.png"></p>
+<p>在P2P网络中，节点是不可信的，任何人都能够以极低成本的伪造一个Mozi节点。为保证Mozi网络的完全可控，不被他人窃取。Mozi需要对每一个同步到的文件做签名验签，只有能够通过签名验签的文件才能被Mozi节点接受，并执行。<br>Ｍozi使用ECDSA384算法验证文件及指令的合法性，每个样本都集成了俩个xor加密的的公钥，分别用于验签加密和解密后的config文件</p>
+<p><img src="/post/11111d2d/Pasted%20image%2020230521225726.png"></p>
+<p><strong>Config文件关键字</strong></p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1：辅助字段，用于信息说明</span><br><span class="line">[cpu]　　cpu arch or os</span><br><span class="line">[cpux]  cpu arch or os</span><br><span class="line">[ss]	bot role</span><br><span class="line">[ssx]	bot role</span><br><span class="line">[nd] 	new node info which help to join DHT</span><br><span class="line">2:控制字段，用于更新节点的数据</span><br><span class="line">[ver] 	verify </span><br><span class="line">[sv]	update  Config</span><br><span class="line">[hp] 	DHT id prefix</span><br><span class="line">[dip]   URL or ip:port list which can get Mozi sample</span><br><span class="line">3:子任务字段，用于开启相应的子任务</span><br><span class="line">[atk]	DDOS attack</span><br><span class="line">[ud] 	update</span><br><span class="line">[dr] 	exec payload from specific URL </span><br><span class="line">[rn] 	exec system or customized cmds</span><br><span class="line">[idp] 	report bot info</span><br></pre></td></tr></table></figure>
+<p>bot 通过解析从某主机下发的Config文件中的各个字段，从而去执行相应的任务。</p>
+<h2 id="Panchan"><a href="#Panchan" class="headerlink" title="Panchan"></a>Panchan</h2><p>Akamai 安全研究人员发现了<strong>Panchan</strong>，这是一种新的P2P Botnet和 SSH 蠕虫，于 2022 年 3 月出现，此后一直在积极破坏 Linux 服务器。</p>
+<p><strong>僵尸网络通过获取 SSH 密钥引入了一种独特的（并且可能是新颖的）横向移动方法</strong>。不像大多数僵尸网络那样仅对随机 IP 地址使用暴力或字典攻击，该恶意软件还读取 id_rsa_和 known_hosts_文件以获取现有凭据并使用它们在网络中横向移动。</p>
+<h4 id="现有的-SSH-密钥"><a href="#现有的-SSH-密钥" class="headerlink" title="现有的 SSH 密钥"></a>现有的 SSH 密钥</h4><blockquote>
+<p>该恶意软件会在运行用户的_HOME_目录下查找 SSH 配置和密钥。<em>它读取~HOME/.ssh/id_rsa_下的私钥，并使用它来尝试对</em>~HOME/.ssh/known_hosts_下找到的任何 IP 地址进行身份验证。这是我们尚未在其他恶意软件中使用过的一种新颖的凭据收集方法。</p>
+</blockquote>
+<h4 id="暴力破解凭据"><a href="#暴力破解凭据" class="headerlink" title="暴力破解凭据"></a>暴力破解凭据</h4><blockquote>
+<p>该恶意软件可以随机化 IP 地址并尝试使用预先确定的用户和密码列表进行字典攻击。强制传播器在单独的进程中多次生成，仅受操作系统对打开文件的设置限制。用户名和密码相当简单——默认字符串的组合，如“ubuntu”、“root”、“user”、“debian”、“pi”等。</p>
+</blockquote>
+<p>成功验证目标后，恶意软件会在根目录 / 下创建一个随机名称的隐藏文件夹，并使用 sftp 将自身复制到名为<strong>xinetd 的</strong>隐藏文件夹中。</p>
+<p>然后，恶意软件在目标机器上远程执行复制的二进制文件，并通过命令行向其传递一个对等点列表。<strong>成功感染后，恶意软件会启动对 Discord webhook 的 HTTPS POST 操作</strong>，这可能用于受害者监控。</p>
+<h2 id="DDG"><a href="#DDG" class="headerlink" title="DDG"></a>DDG</h2><p>DDG.Mining.Botnet(下文称 <strong>ddg</strong>) 是一个挖矿僵尸网络。ddg 最初的结构比较简单：</p>
+<ul>
+<li>  <strong>具有蠕虫功能的恶意程序</strong>(下文简称 <strong>主样本</strong>)可以利用漏洞来入侵主机实现自主传播；</li>
+<li>  有 1~3 个<strong>文件下载服务器</strong>提供矿机程序和恶意 Shell 脚本的下载，Shell 脚本被具有蠕虫功能的恶意程序下载到失陷主机中用来做定时任务，实现常驻失陷主机；恶意矿机程序则被 Shell 脚本不断下载、启动来挖矿。</li>
+</ul>
+<p>一般说来，无论是传统 Botnet 还是 P2P Botnet，都有一个 C&amp;C 服务来持续控制它，比如控制它今天 DDoS 一个网站，明天给某个帖子刷量，后天又去发一波垃圾邮件……但近些年来，随着挖矿僵尸网络的盛行，由于盈利模式的简单粗暴，致使 Botnet 的网络结构也发生了细微的变化：<strong>挖矿僵尸网络可以不再需要一个持续控制的 C&amp;C 服务</strong>。对于<strong>纯粹的</strong>挖矿僵尸网络，它的恶意活动是单一而且确定的：<strong>挖矿</strong>，所以可以不再需要一个 C&amp;C 服务来给它下发指令来实施恶意活动；它的恶意活动是持续进行的，不间断也不用切换任务，所以也不需要一个 C&amp;C 服务来<strong>持续控制</strong>。</p>
+<h1 id="实践-Demo"><a href="#实践-Demo" class="headerlink" title="实践 Demo"></a>实践 Demo</h1><ul>
+<li><p>使用<code>libp2p</code>库进行p2p network 的构建，<strong>Libp2p是一个模块化的网络栈</strong>，通过将各种传输和P2P协议结合在一起，使得开发人员很容易构建大型、健壮的P2P网络。Libp2p被用作IPFS的网络层，主要负责发现节点、连接节点、发现数据、传输数据。Libp2p 集成了各种传输协议和点对点协议，其主要作用是发现节点和内容，并且让不同的网络协议能够互相之间顺利的传送数据。开发人员可以使用 Libp2p 轻松构建大型，稳定的 p2p 网络。</p>
+</li>
+<li><p>libp2p 使用以 Kademlia算法为基础的 DHT 作为其对等路由和内容路由功能的基础，使用非对称加密算法构建安全信道<br><img src="/post/11111d2d/undefined/4a6d9b4ddd1056849280a2fa9d3fa25.png"></p>
+</li>
+<li><p>对每一个同步到的文件做签名验签,采用的验签方法为ED25519，这是一个公开的数字签名算法，验签公钥为：<code>423f82ef28e668cf38eb7977385ad59330d128e802662a4e2a30069a05a3f8a5</code>，该公钥被集成到了每一个可执行文件中。也就是说任何一个节点均可以对拿到的新文件进行合法性验证<br><img src="/post/11111d2d/undefined/de4f7ca7c51285b5742823bc00fac66.png"></p>
+</li>
+<li><p>特殊构造的Config文件，向bot主机分发Dos攻击，设置更新攻击参数，执行相关命令等任务<br><img src="/post/11111d2d/undefined/6ef2013c64edc83e73d26ae47b228d7.png"></p>
+</li>
+</ul>
+<p>两侧窗口是分别构建的两个节点，以左节点为引导节点，攻击者使用私钥在引导节点上分发<code>CMD = calc.exe</code> 的Config命令， 右侧节点收到任务立即执行。<br><img src="/post/11111d2d/undefined/4ff000481a3d3420f8b025f0bbc7784.png"></p>
+<ul>
+<li>在运行用户的_HOME_目录下查找 SSH 配置和密钥。<em>它读取~HOME/.ssh/id_rsa_下的私钥，并使用它来尝试对</em>~HOME/.ssh/known_hosts_下找到的任何 IP 地址进行身份验证。以此打开SSH通道，再经SFTP将二进制文件与Config复制到目标主机上实现传播。目标主机中的副本程序启动后读取Config中的引导节点(BootstrapNode，BSN)，通过此节点加入P2P Botnet。(待完善)<br><img src="/post/11111d2d/undefined/232bb485b77d7d61dadb565baa888dc.png"></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">phrara</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/post/11111d2d/">http://example.com/post/11111d2d/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/botnet/">botnet</a><a class="post-meta__tags" href="/tags/p2p/">p2p</a></div><div class="post_share"><div class="social-share" data-image="/img/c8.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/post/3c41a474/"><img class="next-cover" src="/img/c3.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">packet</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/photo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">phrara</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/phrara/"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">到达世界最高城!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#P2P-Botnet%E8%B5%B7%E6%BA%90"><span class="toc-number">1.1.</span> <span class="toc-text">P2P Botnet起源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P2P-Botnet%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">P2P Botnet组织结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pbot"><span class="toc-number">1.2.1.</span> <span class="toc-text">Pbot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mozi"><span class="toc-number">1.2.2.</span> <span class="toc-text">Mozi</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B0%E5%9E%8B-P2P-Botnet"><span class="toc-number">2.</span> <span class="toc-text">新型 P2P Botnet</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mozi-1"><span class="toc-number">2.1.</span> <span class="toc-text">Mozi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Panchan"><span class="toc-number">2.2.</span> <span class="toc-text">Panchan</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%B0%E6%9C%89%E7%9A%84-SSH-%E5%AF%86%E9%92%A5"><span class="toc-number">2.2.0.1.</span> <span class="toc-text">现有的 SSH 密钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E5%87%AD%E6%8D%AE"><span class="toc-number">2.2.0.2.</span> <span class="toc-text">暴力破解凭据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDG"><span class="toc-number">2.3.</span> <span class="toc-text">DDG</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5-Demo"><span class="toc-number">3.</span> <span class="toc-text">实践 Demo</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/11111d2d/" title="P2P-Botnet"><img src="/img/c8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="P2P-Botnet"/></a><div class="content"><a class="title" href="/post/11111d2d/" title="P2P-Botnet">P2P-Botnet</a><time datetime="2023-05-21T13:30:33.348Z" title="Created 2023-05-21 21:30:33">2023-05-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/3c41a474/" title="packet"><img src="/img/c3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="packet"/></a><div class="content"><a class="title" href="/post/3c41a474/" title="packet">packet</a><time datetime="2023-05-11T08:14:30.324Z" title="Created 2023-05-11 16:14:30">2023-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/19ce5f52/" title="DGA域名"><img src="/img/c10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DGA域名"/></a><div class="content"><a class="title" href="/post/19ce5f52/" title="DGA域名">DGA域名</a><time datetime="2023-04-12T15:10:39.302Z" title="Created 2023-04-12 23:10:39">2023-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/9c057035/" title="带状疱疹病史"><img src="/img/c2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="带状疱疹病史"/></a><div class="content"><a class="title" href="/post/9c057035/" title="带状疱疹病史">带状疱疹病史</a><time datetime="2023-04-10T10:14:32.521Z" title="Created 2023-04-10 18:14:32">2023-04-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/8e372fbf/" title="K8s(1)"><img src="/img/c5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="K8s(1)"/></a><div class="content"><a class="title" href="/post/8e372fbf/" title="K8s(1)">K8s(1)</a><time datetime="2023-03-27T14:32:35.961Z" title="Created 2023-03-27 22:32:35">2023-03-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/c8.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By phrara</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><div class="aplayer no-destroy" data-id="3013413533" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="true"></div><script id="canvas_nest" defer="defer" color="248,245,214" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="/img/mov.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.js"></script><!-- hexo injector body_end end --></body></html>
